@@ -1,0 +1,45 @@
+{
+  "name": "cli-button",
+  "version": "1.1.8",
+  "description": "CLI for adding button components",
+  "main": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "bin": {
+    "cli-button": "./dist/index.mjs"
+  },
+  "scripts": {
+    "test": "node dist/index.mjs",
+    "build": "tsup"
+  },
+  "keywords": [
+    "cli",
+    "button",
+    "react",
+    "next"
+  ],
+  "author": "lunaxislu",
+  "license": "ISC",
+  "devDependencies": {
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@antfu/ni": "^0.23.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.5.4",
+    "commander": "^12.1.0",
+    "execa": "^9.3.1",
+    "fast-glob": "^3.3.2",
+    "fs-extra": "^11.2.0",
+    "kleur": "^4.1.5",
+    "tsconfig-paths": "^4.2.0",
+    "type-fest": "^4.26.0"
+  },
+  "peerDependencies": {
+    "@types/css-modules": "^1.0.5",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0"
+  }
+}
