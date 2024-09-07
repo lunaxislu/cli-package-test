@@ -8,6 +8,7 @@ import fs from "fs-extra";
 import { readPackageJson, validateFramework } from "../util/get-package-info";
 import { execa } from "execa";
 import { ComponentJson } from "../util/path-resolve";
+import { getFileContentFromGithub } from "../util/get-module";
 
 export async function init(component: string, filePathResolve: ComponentJson) {
   console.log(kleur.cyan("Installing...."));
@@ -51,10 +52,10 @@ export async function init(component: string, filePathResolve: ComponentJson) {
     // 파일 복사
     const files = filePathResolve[pathResolveKey].files;
     for (const file of files) {
-      const sourcePath = path.resolve(cwd, file.path);
-      const destinationPath = path.join(uiPath, `${file.name}`);
-      await fs.copyFile(sourcePath, destinationPath);
-      console.log(kleur.green(`Copied ${file.name} to ${destinationPath}`));
+      const fileContent = await getFileContentFromGithub(file.path); // GitHub에서 파일 내용 가져오기
+      const destPath = path.join(uiPath, file.name); // 복사할 경로 설정
+      await fs.writeFile(destPath, fileContent); // 파일 내용을 로컬에 작성
+      console.log(kleur.green(`Copied ${file.name} to ${destPath}`));
     }
 
     // ts일때, css-module 타입 지원 검사
@@ -65,7 +66,11 @@ export async function init(component: string, filePathResolve: ComponentJson) {
       try {
         await execa(
           packageManager,
-          [packageManager === "npm" ? "install" : "add"],
+          [
+            packageManager === "npm" ? "install" : "add",
+            "@types/css-modules",
+            "--save-dev",
+          ],
           {
             cwd,
             /**@explain stdio: 'inherit' 설정의 주요 효과:

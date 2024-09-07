@@ -1,6 +1,6 @@
 {
   "name": "cli-button",
-  "version": "1.1.8",
+  "version": "1.2.1",
   "description": "CLI for adding button components",
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
@@ -34,6 +34,7 @@
     "fast-glob": "^3.3.2",
     "fs-extra": "^11.2.0",
     "kleur": "^4.1.5",
+    "node-fetch": "^3.3.2",
     "tsconfig-paths": "^4.2.0",
     "type-fest": "^4.26.0"
   },

@@ -1,16 +1,34 @@
 {
   "typescript": {
     "files": [
-      { "name": "Button.tsx", "path": "./template/Button.tsx" },
-      { "name": "Button.module.css", "path": "./template/Button.module.css" },
-      { "name": "Svgr.tsx", "path": "./template/Svgr.tsx" }
+      {
+        "name": "Button.tsx",
+        "path": "https://raw.githubusercontent.com/lunaxislu/cli-package-test/main/cli-button/src/template/Button.tsx"
+      },
+      {
+        "name": "Button.module.css",
+        "path": "https://raw.githubusercontent.com/lunaxislu/cli-package-test/main/cli-button/src/template/Button.module.css"
+      },
+      {
+        "name": "Svgr.tsx",
+        "path": "https://raw.githubusercontent.com/lunaxislu/cli-package-test/main/cli-button/src/template/svgr/Svgr.tsx"
+      }
     ]
   },
   "javascript": {
     "files": [
-      { "name": "Button.jsx", "path": "./template/Button.jsx" },
-      { "name": "Button.module.css", "path": "./template/Button.module.css" },
-      { "name": "Svgr.jsx", "path": "./template/Svgr.jsx" }
+      {
+        "name": "Button.jsx",
+        "path": "https://raw.githubusercontent.com/lunaxislu/cli-package-test/main/cli-button/src/template/Button.jsx"
+      },
+      {
+        "name": "Button.module.css",
+        "path": "https://raw.githubusercontent.com/lunaxislu/cli-package-test/main/cli-button/src/template/Button.module.css"
+      },
+      {
+        "name": "Svgr.jsx",
+        "path": "https://raw.githubusercontent.com/lunaxislu/cli-package-test/main/cli-button/src/template/svgr/Svgr.jsx"
+      }
     ]
   }
 }
