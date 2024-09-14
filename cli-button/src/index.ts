@@ -6,7 +6,7 @@ import { init } from "./command/init";
 import { getComponentJSonInfo } from "./util/path-resolve";
 
 function main() {
-  const packageInfo = getPackageInfo();
+  const packageInfo = getPackageInfo(); // package.json 정보가져오기
   const pathResolve = getComponentJSonInfo(); // 컴포넌트 경로 설정
 
   const program = new Command();
@@ -17,7 +17,7 @@ function main() {
     .version(
       packageInfo.version || "1.0.0",
       "-v, --version",
-      "display the version number"
+      "display the version number",
     )
     .command("add <button>")
     .action((button) => init(button, pathResolve));
