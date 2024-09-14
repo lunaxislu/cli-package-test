@@ -1,0 +1,3 @@
+#!/usr/bin/env node
+import{Command as f}from"commander";import{Command as g}from"commander";import s from"path";import a,{pathExists as j}from"fs-extra";import c from"fast-glob";import u from"fs-extra";var p=["**/node_modules/**",".next","public","dist","build"];async function r(e){let o=await c.glob("**/*.css",{cwd:e,deep:5,ignore:p});if(!o.length)return null;for(let t of o){let n=await a.readFile(s.resolve(e,t),"utf8");if(console.log(n),n.includes("@tailwind base"))return t}return null}var i=new g().name("init").action(async()=>{let e=process.cwd(),o=await r(e);console.log("\u{1F680} ~ result:",o)});async function l(){let e=new f;e.name("ts-morph-test"),e.addCommand(i),e.parse()}l();
+//# sourceMappingURL=index.mjs.map
