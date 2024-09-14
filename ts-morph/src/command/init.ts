@@ -1,5 +1,11 @@
 import { Command } from "commander";
-import { getProjectInfo, getTailwindCssFile } from "../util/get-project-info";
+import {
+  getProjectInfo,
+  getTailwindConfigFile,
+  getTailwindCssFile,
+  updateWithFsToTailwindConfig,
+  updateWithTsmorphToTailwindConfig,
+} from "../util/get-project-info";
 
 export const init = new Command().name("init").action(async () => {
   const cwd = process.cwd();
@@ -15,5 +21,9 @@ export const init = new Command().name("init").action(async () => {
 
   //   const projectInfo = await getProjectInfo(cwd);
 
-  await getTailwindCssFile(cwd);
+  const filePath = await getTailwindConfigFile(cwd);
+  if (filePath) {
+    const res = await updateWithFsToTailwindConfig(filePath);
+    await updateWithTsmorphToTailwindConfig(filePath);
+  }
 });
